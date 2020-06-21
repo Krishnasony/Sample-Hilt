@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_very_large">100dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="edit_text_width">47dp</dimen>
+    <dimen name="padding_large">20dp</dimen>
+    <dimen name="btn_width">200dp</dimen>
+    <dimen name="padding_very_small">5dp</dimen>
+    <dimen name="margin_view">16dp</dimen>
+</resources>

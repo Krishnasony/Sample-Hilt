@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">UserInfo</string>
+    <string name="user_info">User Info</string>
+    <string name="user_name">User Name</string>
+    <string name="mobileNo">Mobile No.</string>
+    <string name="email">Email</string>
+    <string name="save_user">Save</string>
 </resources>
