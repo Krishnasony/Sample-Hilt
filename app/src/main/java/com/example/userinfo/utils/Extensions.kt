@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 
 fun Activity.fullScreenView(colorRes: Int) {
     window.apply {
@@ -18,3 +19,6 @@ fun Activity.fullScreenView(colorRes: Int) {
         statusBarColor = getColor(colorRes)
     }
 }
+
+fun Activity.showToast(message: String) =
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

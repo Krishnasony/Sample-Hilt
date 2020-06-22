@@ -10,9 +10,6 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addUser(user: User)
 
-    @Update
-    fun update(user: User)
-
-    @Query("SELECT * FROM user")
-    fun getUser(): LiveData<User>
+    @Query("SELECT * FROM user WHERE id Like 'U001'")
+    fun getUser(): User?
 }
