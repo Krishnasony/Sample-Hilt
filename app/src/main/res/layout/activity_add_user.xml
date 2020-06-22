@@ -67,7 +67,7 @@
             android:lines="1"
             android:nextFocusForward="@id/ed_email"
             android:padding="@dimen/padding_very_small"
-            android:text="@{String.valueOf(user.mobileNo)}"
+            android:text="@{user.mobileNo!=0?String.valueOf(user.mobileNo):``}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileNo" />
