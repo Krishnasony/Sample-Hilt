@@ -11,6 +11,7 @@ import com.example.userinfo.utils.fullScreenView
 import kotlinx.android.synthetic.main.activity_add_user.*
 
 class AddUserActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_user)
@@ -22,7 +23,7 @@ class AddUserActivity : AppCompatActivity() {
         }
 
         btn_back.setOnClickListener {
-            MainActivity.start(this)
+           onBackPressed()
         }
     }
 
