@@ -1,135 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.add.AddUserActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-        android:text="@string/user_name"
-        android:textColor="@color/color_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    <data>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/ed_user_name"
+        <variable
+            name="user"
+            type="com.example.userinfo.room.entity.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/edit_text_width"
-        android:layout_margin="@dimen/margin_small"
-        android:autofillHints="name"
-        android:background="@drawable/bg_edit_text"
-        android:inputType="text"
-        android:lines="1"
-        android:nextFocusForward="@id/ed_mobileNo"
-        android:padding="@dimen/padding_very_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_name" >
-        <requestFocus/>
-    </androidx.appcompat.widget.AppCompatEditText>
+        android:layout_height="match_parent"
+        tools:context=".ui.add.AddUserActivity"
+        android:background="@color/white">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mobileNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_small"
-        android:text="@string/mobileNo"
-        android:textColor="@color/color_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_user_name" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/user_name"
+            android:textColor="@color/color_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/ed_mobileNo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/edit_text_width"
-        android:layout_margin="@dimen/margin_small"
-        android:autofillHints="phoneNo"
-        android:background="@drawable/bg_edit_text"
-        android:inputType="phone"
-        android:lines="1"
-        android:nextFocusForward="@id/ed_email"
-        android:padding="@dimen/padding_very_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobileNo" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/ed_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_width"
+            android:layout_margin="@dimen/margin_small"
+            android:autofillHints="name"
+            android:background="@drawable/bg_edit_text"
+            android:inputType="text"
+            android:lines="1"
+            android:nextFocusForward="@id/ed_mobileNo"
+            android:padding="@dimen/padding_very_small"
+            android:text="@{user.userName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_name">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_small"
-        android:layout_marginStart="@dimen/margin_small"
-        android:text="@string/email"
-        android:textColor="@color/color_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_mobileNo" />
+            <requestFocus />
+        </androidx.appcompat.widget.AppCompatEditText>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/ed_email"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/edit_text_width"
-        android:layout_margin="@dimen/margin_small"
-        android:autofillHints="emailAddress"
-        android:background="@drawable/bg_edit_text"
-        android:inputType="textEmailAddress"
-        android:lines="1"
-        android:nextFocusForward="@id/btn_user_save"
-        android:padding="@dimen/padding_very_small"
-        app:layout_constraintBottom_toTopOf="@+id/btn_user_save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mobileNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:text="@string/mobileNo"
+            android:textColor="@color/color_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_user_name" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_user_save"
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_very_large"
-        android:background="@drawable/bg_user_btn"
-        android:drawableEnd="@drawable/ic_next"
-        android:paddingStart="@dimen/padding_large"
-        android:paddingEnd="@dimen/padding_large"
-        android:text="@string/save_user"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_email" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/ed_mobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_width"
+            android:layout_margin="@dimen/margin_small"
+            android:autofillHints="phoneNo"
+            android:background="@drawable/bg_edit_text"
+            android:inputType="phone"
+            android:lines="1"
+            android:nextFocusForward="@id/ed_email"
+            android:padding="@dimen/padding_very_small"
+            android:text="@{String.valueOf(user.mobileNo)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobileNo" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="@dimen/edit_text_width"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_user" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/email"
+            android:textColor="@color/color_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_mobileNo" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btn_back"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_small"
-        android:layout_marginTop="@dimen/edit_text_width"
-        android:tint="@color/color_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/ed_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_width"
+            android:layout_margin="@dimen/margin_small"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/bg_edit_text"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:nextFocusForward="@id/btn_user_save"
+            android:padding="@dimen/padding_very_small"
+            android:text="@{user.email}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_user_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_user_save"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_very_large"
+            android:background="@drawable/bg_user_btn"
+            android:drawableEnd="@drawable/ic_next"
+            android:paddingStart="@dimen/padding_large"
+            android:paddingEnd="@dimen/padding_large"
+            android:text="@string/save_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_email" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/edit_text_width"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_user" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/edit_text_width"
+            android:tint="@color/color_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -5,8 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.userinfo.R
+import com.example.userinfo.databinding.ActivityAddUserBinding
 import com.example.userinfo.room.entity.User
 import com.example.userinfo.ui.detail.UserDetailActivity
 import com.example.userinfo.utils.*
@@ -17,12 +19,13 @@ import kotlinx.android.synthetic.main.activity_add_user.*
 @AndroidEntryPoint
 class AddUserActivity : AppCompatActivity() {
 
+    private lateinit var dataBinding: ActivityAddUserBinding
     private var mUser: User? = null
     private val userViewModel: UserViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_user)
+        dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_user)
         fullScreenView(R.color.white)
         getUserData()
         btn_user_save.setOnClickListener {
@@ -37,18 +40,14 @@ class AddUserActivity : AppCompatActivity() {
     private fun getUserData() {
         userViewModel.user.observe(this, Observer { resource ->
             when (resource.status) {
-                Status.LOADING -> {
-                    showToast("loading")
-                }
+                Status.LOADING -> progressBar.visible()
                 Status.SUCCESS -> {
                     resource.data?.let {
-                        showToast("User: $it")
-                        mUser = it
+                        dataBinding.user = it
+                        progressBar.gone()
                     }
                 }
-                Status.ERROR -> {
-                    showToast("Error")
-                }
+                Status.ERROR -> progressBar.gone()
             }
         })
     }

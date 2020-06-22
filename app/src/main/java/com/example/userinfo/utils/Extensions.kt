@@ -22,3 +22,11 @@ fun Activity.fullScreenView(colorRes: Int) {
 
 fun Activity.showToast(message: String) =
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+fun View.gone(){
+    this.visibility = View.GONE
+}
+
+fun View.visible(){
+    this.visibility = View.VISIBLE
+}
